@@ -7,20 +7,35 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './modules/material/material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HomeComponent } from './component/home.component';
+import { SignInComponent } from './component/member/sign-in/sign-in.component';
+import { SignUpComponent } from './component/member/sign-up/sign-up.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
+import { SignService } from './service/rest-api/sign.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    SignInComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  exports: [
+    ReactiveFormsModule
+  ],
+  providers: [
+    SignService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

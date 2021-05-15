@@ -3,12 +3,13 @@
 ![Generic badge](https://img.shields.io/badge/node-16.1.0-green.svg)
 ![Generic badge](https://img.shields.io/badge/@angular/material-8.1.3-blue.svg)
 
-## Getting Started
+
+### Working with SpringBoot-RESTful-API
 ```
 https://github.com/YeonCheolGit/angular-frontend.git
 ```
 
-### Working with SpringBoot-RESTful-API
+## Getting Started
 ```
 https://github.com/YeonCheolGit/angular-frontend.git
 ```
