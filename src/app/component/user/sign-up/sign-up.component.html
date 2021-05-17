@@ -1,0 +1,45 @@
+<div class="wrapper">
+  <mat-card>
+    <mat-card-title>회원가입</mat-card-title>
+    <form [formGroup]="signUpForm" (ngSubmit)="submit()">
+      <p>
+        <mat-form-field>
+          <input type="text" matInput placeholder="Email" formControlName="userId">
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field>
+          <input type="password" matInput placeholder="Password" formControlName="userPwd">
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field>
+          <input type="password" matInput placeholder="Confirm Password" formControlName="userPwd_Re">
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field>
+          <input type="text" matInput placeholder="Name" formControlName="userName">
+        </mat-form-field>
+      </p>
+      <p *ngIf="f.userId.invalid && (f.userId.touched || f.userId.dirty)" class="error">
+        아이디(이메일)는 반드시 입력하셔야 합니다.
+      </p>
+      <p *ngIf="f.userPwd.invalid && (f.userPwd.touched || f.userPwd.dirty) && f.userPwd.errors.required" class="error">
+        최소 1개의 소문자, 대문자, 숫자, 특수문자를 입력해야 합니다.
+      </p>
+      <p *ngIf="f.userPwd_Re.invalid && (f.userPwd_Re.touched || f.userPwd_Re.dirty) && f.userPwd_Re.errors.required" class="error">
+        다시 한번 비밀번호를 입력해주세요.
+      </p>
+      <p *ngIf="signUpForm.hasError('notSame')" class="error">
+        비밀번호가 일치하지 않습니다.
+      </p>
+      <p *ngIf="f.userName.invalid && (f.userName.touched || f.userName.dirty) && f.userName.errors.required" class="error">
+        닉네임을 입력해주세요.
+      </p>
+      <div class="button">
+        <button type="submit" mat-raised-button [disabled]="!signUpForm.valid" color="primary">회원가입</button>
+      </div>
+    </form>
+  </mat-card>
+</div>

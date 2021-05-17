@@ -40,13 +40,13 @@
           </div>
           <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs>
             <ul fxLayout fxLayoutGap="20px" class="navigation-items">
-              <li>
+              <li *ngIf="!signService.singInCheck()">
                 <a [routerLink]="['/signIn']">
                   <mat-icon class="icon">input</mat-icon>
                   <span  class="label">로그인</span>
                 </a>
               </li>
-              <li>
+              <li *ngIf="signService.singInCheck()">
                 <a>
                   <mat-icon class="icon">person</mat-icon>
                   <span class="label">내정보</span>
@@ -58,8 +58,8 @@
                   <span class="label">게시판</span>
                 </a>
               </li>
-              <li>
-                <a>
+              <li *ngIf="signService.singInCheck()">
+                <a href="/logout">
                   <mat-icon class="icon">input</mat-icon>
                   <span class="label">로그아웃</span>
                 </a>

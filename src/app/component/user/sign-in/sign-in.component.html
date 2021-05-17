@@ -14,13 +14,16 @@
           </mat-form-field>
         </p>
         <p *ngIf="userId.touched && userId.invalid && userId.errors.required" class="error">
-          아이디는 반드시 입력하셔야 합니다.
+          아이디(이메일)는 반드시 입력하셔야 합니다.
+        </p>
+        <p *ngIf="userId.touched && userId.invalid && userId.errors.email" class="error">
+          올바른 형식의 아이디(이메일)을 입력하세요.
         </p>
         <p *ngIf="userId.touched && userId.invalid && userId.errors.email" class="error">
           올바른 형식의 아이디(이메일)을 입력하세요.
         </p>
         <p *ngIf="userPwd.touched && userPwd.invalid && userPwd.errors.required" class="error">
-          비밀번호는 반드시 입력하셔야 합니다.
+          최소 1개의 소문자, 대문자, 숫자, 특수문자를 입력해야 합니다.
         </p>
         <div class="button">
           <button type="submit" mat-stroked-button [disabled]="!signInForm.valid">로그인</button>

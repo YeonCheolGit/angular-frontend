@@ -7,8 +7,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './modules/material/material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HomeComponent } from './component/home.component';
-import { SignInComponent } from './component/member/sign-in/sign-in.component';
-import { SignUpComponent } from './component/member/sign-up/sign-up.component';
+import { SignInComponent } from './component/user/sign-in/sign-in.component';
+import { SignUpComponent } from './component/user/sign-up/sign-up.component';
+import { LogoutComponent } from './component/user/logout/logout.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { SignService } from './service/rest-api/sign.service';
@@ -18,7 +19,8 @@ import { SignService } from './service/rest-api/sign.service';
     AppComponent,
     HomeComponent,
     SignInComponent,
-    SignUpComponent
+    SignUpComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
