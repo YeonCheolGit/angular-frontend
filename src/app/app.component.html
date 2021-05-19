@@ -4,23 +4,23 @@
       <mat-sidenav  #sidenav role="navigation">
         <mat-nav-list>
           <a mat-list-item [routerLink]="['/signIn']" routerLinkActive="router-link-active">
-            <mat-icon class="icon">input</mat-icon>
+            <mat-icon class="icon">login</mat-icon>
             <span class="label">로그인</span>
           </a>
           <a mat-list-item>
             <mat-icon class="icon">home</mat-icon>
             <span class="label">홈</span>
           </a>
-          <a mat-list-item>
-            <mat-icon class="icon">person</mat-icon>
+          <a mat-list-item *ngIf="signService.signInCheck()" [routerLink] = "['/myInfo']">
+            <mat-icon class="icon">myInfo</mat-icon>
             <span class="label">내정보</span>
           </a>
-          <a mat-list-item>
-            <mat-icon class="icon">dashboard</mat-icon>
+          <a mat-list-item [routerLink]="['/board/free/']">
+            <mat-icon class="icon">board</mat-icon>
             <span class="label">게시판</span>
           </a>
-          <a mat-list-item>
-            <mat-icon class="icon">input</mat-icon>
+          <a mat-list-item *ngIf="signService.signInCheck()" href="/logOut">
+            <mat-icon class="icon">logout</mat-icon>
             <span class="label">로그아웃</span>
           </a>
         </mat-nav-list>
@@ -40,27 +40,27 @@
           </div>
           <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs>
             <ul fxLayout fxLayoutGap="20px" class="navigation-items">
-              <li *ngIf="!signService.singInCheck()">
+              <li *ngIf="!signService.signInCheck()">
                 <a [routerLink]="['/signIn']">
-                  <mat-icon class="icon">input</mat-icon>
+                  <mat-icon class="icon">login</mat-icon>
                   <span  class="label">로그인</span>
                 </a>
               </li>
-              <li *ngIf="signService.singInCheck()">
-                <a>
-                  <mat-icon class="icon">person</mat-icon>
+              <li *ngIf="signService.signInCheck()">
+                <a [routerLink]="['/myInfo']">
+                  <mat-icon class="icon">myInfo</mat-icon>
                   <span class="label">내정보</span>
                 </a>
               </li>
               <li>
-                <a>
-                  <mat-icon class="icon">dashboard</mat-icon>
+                <a [routerLink]="['/board/free']">
+                  <mat-icon class="icon">board</mat-icon>
                   <span class="label">게시판</span>
                 </a>
               </li>
-              <li *ngIf="signService.singInCheck()">
-                <a href="/logout">
-                  <mat-icon class="icon">input</mat-icon>
+              <li *ngIf="signService.signInCheck()">
+                <a href="/logOut">
+                  <mat-icon class="icon">logout</mat-icon>
                   <span class="label">로그아웃</span>
                 </a>
               </li>

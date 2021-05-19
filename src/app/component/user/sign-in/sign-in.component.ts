@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {SignService} from 'src/app/service/rest-api/sign.service';
+import {SignService} from 'src/app/service/rest-api/sign/sign.service';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router, ActivatedRoute} from '@angular/router';
 
@@ -24,12 +24,11 @@ export class SignInComponent implements OnInit {
   }
 
   // tslint:disable-next-line:typedef
-  get userId() {
+  get userIdValid() {
     return this.signInForm.get('userId');
   }
-
   // tslint:disable-next-line:typedef
-  get userPwd() {
+  get userPwdValid() {
     return this.signInForm.get('userPwd');
   }
 

@@ -1,0 +1,28 @@
+<div class="wrapper">
+  <mat-card>
+    <mat-card-title>글쓰기</mat-card-title>
+    <mat-card-content>
+      <form [formGroup]="postForm" (ngSubmit)="submit()">
+        <p>
+          <mat-form-field>
+            <input type="text" matInput placeholder="제목" formControlName="title">
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field>
+            <textarea matInput placeholder="내용" formControlName="content" rows="5"></textarea>
+          </mat-form-field>
+        </p>
+        <p *ngIf="postValid.title.touched && postValid.title.invalid && postValid.title.errors.required" class="error">
+          제목은 반드시 입력하셔야 합니다.
+        </p>
+        <p *ngIf="postValid.content.touched && postValid.content.invalid && postValid.content.errors.required" class="error">
+          내용은은 반드시 입력하셔야 합니다.
+        </p>
+        <div class="button">
+          <button type="submit" mat-stroked-button color="primary" [disabled]="!postForm.valid">등록</button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

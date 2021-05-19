@@ -48,7 +48,7 @@ export class SignService {
       });
   }
 
-  singInCheck(): boolean {
+  signInCheck(): boolean {
     const token = localStorage.getItem('x-auth-token');
     return !!token;
   }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SignService } from './service/rest-api/sign.service';
+import { SignService } from './service/rest-api/sign/sign.service';
 
 @Component({
   selector: 'app-root',
