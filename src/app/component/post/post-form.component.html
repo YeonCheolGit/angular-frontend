@@ -13,10 +13,10 @@
             <textarea matInput placeholder="내용" formControlName="content" rows="5"></textarea>
           </mat-form-field>
         </p>
-        <p *ngIf="postValid.title.touched && postValid.title.invalid && postValid.title.errors.required" class="error">
+        <p *ngIf="postFormValid.title.touched && postFormValid.title.invalid && postFormValid.title.errors.required" class="error">
           제목은 반드시 입력하셔야 합니다.
         </p>
-        <p *ngIf="postValid.content.touched && postValid.content.invalid && postValid.content.errors.required" class="error">
+        <p *ngIf="postFormValid.content.touched && postFormValid.content.invalid && postFormValid.content.errors.required" class="error">
           내용은은 반드시 입력하셔야 합니다.
         </p>
         <div class="button">

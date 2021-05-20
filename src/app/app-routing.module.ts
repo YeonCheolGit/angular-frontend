@@ -7,7 +7,10 @@ import {LogoutComponent} from './component/user/logout/logout.component';
 import {MyInfoComponent} from './component/user/myInfo/myInfo.component';
 import {AuthGuard} from './guards/auth.guard';
 import {BoardComponent} from './component/board/board.component';
-import {PostComponent} from './component/post/post.component';
+import {PostFormComponent} from './component/post/post-form.component';
+import {SinglePostViewComponent} from './component/post/single-post-view/single-post-view.component';
+import {SinglePostModifyComponent} from './component/board/modify/single-post-modify/single-post-modify.component';
+import {BoardResolve} from './component/board/resolve/resolve';
 
 
 const routes: Routes = [
@@ -16,8 +19,10 @@ const routes: Routes = [
   {path: 'signUp', component: SignUpComponent},
   {path: 'logOut', component: LogoutComponent},
   {path: 'myInfo', component: MyInfoComponent, canActivate: [AuthGuard]},
-  {path: 'board/:boardName', component: BoardComponent},
-  {path: 'board/:boardName/post', component: PostComponent, canActivate: [AuthGuard]}
+  {path: 'board/:boardName', component: BoardComponent, resolve: {posts: BoardResolve}},
+  {path: 'board/:boardName/post', component: PostFormComponent, canActivate: [AuthGuard]},
+  {path: 'board/:boardName/post/:postNo', component: SinglePostViewComponent},
+  {path: 'board/:boardName/post/:postNo/modify', component: SinglePostModifyComponent, canActivate: [AuthGuard]},
 ];
 
 @NgModule({

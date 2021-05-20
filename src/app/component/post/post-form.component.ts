@@ -7,10 +7,10 @@ import { BoardService } from 'src/app/service/rest-api/board/board.service';
 
 @Component({
   selector: 'app-post',
-  templateUrl: './post.component.html',
-  styleUrls: ['./post.component.css']
+  templateUrl: './post-form.component.html',
+  styleUrls: ['./post-form.component.css']
 })
-export class PostComponent {
+export class PostFormComponent {
 
   boardName: string;
   postForm: FormGroup;
@@ -31,7 +31,7 @@ export class PostComponent {
   }
 
   // tslint:disable-next-line:typedef
-  get postValid() {
+  get postFormValid() {
     return this.postForm.controls;
   }
 

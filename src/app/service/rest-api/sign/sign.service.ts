@@ -50,6 +50,10 @@ export class SignService {
 
   signInCheck(): boolean {
     const token = localStorage.getItem('x-auth-token');
-    return !!token;
+    if (token) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }

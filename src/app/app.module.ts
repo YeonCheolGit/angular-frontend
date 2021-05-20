@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BoardResolve } from './component/board/resolve/resolve';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -19,7 +20,9 @@ import { HttpRequestInterceptorService } from './service/rest-api/http-request-i
 import {MyInfoService} from './service/rest-api/myInfo/myinfo.service';
 import { BoardComponent } from './component/board/board.component';
 import {BoardService} from './service/rest-api/board/board.service';
-import { PostComponent } from './component/post/post.component';
+import { PostFormComponent } from './component/post/post-form.component';
+import { SinglePostViewComponent } from './component/post/single-post-view/single-post-view.component';
+import { SinglePostModifyComponent } from './component/board/modify/single-post-modify/single-post-modify.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,9 @@ import { PostComponent } from './component/post/post.component';
     LogoutComponent,
     MyInfoComponent,
     BoardComponent,
-    PostComponent
+    PostFormComponent,
+    SinglePostViewComponent,
+    SinglePostModifyComponent
   ],
   imports: [
     BrowserModule,
@@ -49,6 +54,7 @@ import { PostComponent } from './component/post/post.component';
     SignService,
     MyInfoService,
     BoardService,
+    BoardResolve,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpRequestInterceptorService,

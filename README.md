@@ -4,12 +4,12 @@
 ![Generic badge](https://img.shields.io/badge/@angular/material-8.1.3-blue.svg)
 
 
-### Working with SpringBoot-RESTful-API
+### Working with SpringBoot RESTful API
 ```
-https://github.com/YeonCheolGit/angular-frontend.git
+https://github.com/YeonCheolGit/springboot-restful-api-board
 ```
 
-## Getting Started
+### Getting Started
 ```
 https://github.com/YeonCheolGit/angular-frontend.git
 ```

@@ -1,0 +1,28 @@
+<div class="wrapper">
+  <mat-card>
+    <mat-card-title>글수정</mat-card-title>
+    <mat-card-content>
+      <form [formGroup]="postForm" (ngSubmit)="submit()">
+        <p>
+          <mat-form-field>
+            <input type="text" [(ngModel)]="post.title" matInput placeholder="제목" formControlName="title">
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field>
+            <textarea [(ngModel)]="post.content" matInput placeholder="내용" formControlName="content" rows="5"></textarea>
+          </mat-form-field>
+        </p>
+        <p *ngIf="postModifyValid.title.touched && postModifyValid.title.invalid && postModifyValid.title.errors.required" class="error">
+          제목은 반드시 입력하셔야 합니다.
+        </p>
+        <p *ngIf="postModifyValid.content.touched && postModifyValid.content.invalid && postModifyValid.content.errors.required" class="error">
+          본문은 반드시 입력하셔야 합니다.
+        </p>
+        <div class="button">
+          <button type="submit" mat-raised-button color="primary">수정</button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

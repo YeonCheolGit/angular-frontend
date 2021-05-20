@@ -22,19 +22,19 @@
           <input type="text" matInput placeholder="Name" formControlName="userName">
         </mat-form-field>
       </p>
-      <p *ngIf="f.userId.invalid && (f.userId.touched || f.userId.dirty)" class="error">
+      <p *ngIf="signUpFormValid.userId.invalid && (signUpFormValid.userId.touched || signUpFormValid.userId.dirty) && signUpFormValid.userId.errors.email" class="error">
         아이디(이메일)는 반드시 입력하셔야 합니다.
       </p>
-      <p *ngIf="f.userPwd.invalid && (f.userPwd.touched || f.userPwd.dirty) && f.userPwd.errors.required" class="error">
+      <p *ngIf="signUpFormValid.userPwd.invalid && (signUpFormValid.userPwd.touched || signUpFormValid.userPwd.dirty) && signUpFormValid.userPwd.errors.required" class="error">
         최소 1개의 소문자, 대문자, 숫자, 특수문자를 입력해야 합니다.
       </p>
-      <p *ngIf="f.userPwd_Re.invalid && (f.userPwd_Re.touched || f.userPwd_Re.dirty) && f.userPwd_Re.errors.required" class="error">
+      <p *ngIf="signUpFormValid.userPwd_Re.invalid && (signUpFormValid.userPwd_Re.touched || signUpFormValid.userPwd_Re.dirty) && signUpFormValid.userPwd_Re.errors.required" class="error">
         다시 한번 비밀번호를 입력해주세요.
       </p>
       <p *ngIf="signUpForm.hasError('notSame')" class="error">
         비밀번호가 일치하지 않습니다.
       </p>
-      <p *ngIf="f.userName.invalid && (f.userName.touched || f.userName.dirty) && f.userName.errors.required" class="error">
+      <p *ngIf="signUpFormValid.userName.invalid && (signUpFormValid.userName.touched || signUpFormValid.userName.dirty) && signUpFormValid.userName.errors.required" class="error">
         닉네임을 입력해주세요.
       </p>
       <div class="button">
