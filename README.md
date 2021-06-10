@@ -4,10 +4,8 @@
 ![Generic badge](https://img.shields.io/badge/@angular/material-8.1.3-blue.svg)
 
 
-### Working with SpringBoot RESTful API
-```
-https://github.com/YeonCheolGit/springboot-restful-api-board
-```
+### Backend (SpringBoot REST API)  
+[Backend Repository](https://github.com/YeonCheolGit/springboot-restful-api-board)
 
 ### Getting Started
 ```
