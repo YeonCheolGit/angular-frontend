@@ -30,7 +30,6 @@
           <ng-container matColumnDef="modifiedAt">
             <mat-header-cell *matHeaderCellDef>수정</mat-header-cell>
             <mat-cell *matCellDef="let element" class="column-center">
-<!--              <mat-icon class="icon" *ngIf="signService.signInCheck() && loginUser?.userNo == element?.user.userNo" [routerLink]="['/board', boardName, 'post', element.postNo, 'modify']">edit</mat-icon>-->
               <mat-icon class="icon" *ngIf="signService.signInCheck()" [routerLink]="['/board', boardName, 'post', element.postNo, 'modify']">edit</mat-icon>
               <mat-icon class="icon" *ngIf="signService.signInCheck()" (click)="delete(element.postNo)">delete_forever</mat-icon>
             </mat-cell>

@@ -11,12 +11,14 @@ import {PostFormComponent} from './component/post/post-form.component';
 import {SinglePostViewComponent} from './component/post/single-post-view/single-post-view.component';
 import {SinglePostModifyComponent} from './component/board/modify/single-post-modify/single-post-modify.component';
 import {BoardResolve} from './component/board/resolve/resolve';
+import {SignUpKakaoComponent} from './component/user/sign-up-kakao/sign-up-kakao/sign-up-kakao.component';
 
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'signIn', component: SignInComponent},
   {path: 'signUp', component: SignUpComponent},
+  {path: 'signUpKakaoButton', component: SignInComponent},
   {path: 'logOut', component: LogoutComponent},
   {path: 'myInfo', component: MyInfoComponent, canActivate: [AuthGuard]},
   {path: 'board/:boardName', component: BoardComponent, resolve: {posts: BoardResolve}},

@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {SignService} from 'src/app/service/rest-api/sign/sign.service';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {AbstractControl, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router, ActivatedRoute} from '@angular/router';
 
 @Component({
@@ -23,29 +23,33 @@ export class SignInComponent implements OnInit {
     });
   }
 
-  // tslint:disable-next-line:typedef
-  get userIdValid() {
+  get userIdValid(): AbstractControl {
     return this.signInForm.get('userId');
   }
-  // tslint:disable-next-line:typedef
-  get userPwdValid() {
+
+  get userPwdValid(): AbstractControl {
     return this.signInForm.get('userPwd');
   }
 
-  // tslint:disable-next-line:typedef
-  ngOnInit() {
+  ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
       this.redirectTo = params['redirectTo'];
     });
   }
 
-  // tslint:disable-next-line:typedef
-  submit() {
+  submit(): void {
     if (this.signInForm.valid) {
       this.signService.signIn(this.signInForm.value.userId, this.signInForm.value.userPwd)
         .then(data => {
           this.router.navigate([this.redirectTo ? this.redirectTo : '/']);
         });
     }
+  }
+
+  signUpKakaoButton(): any {
+    this.signService.signUpKakaoButton()
+      .then(data => {
+        console.log(data);
+      });
   }
 }

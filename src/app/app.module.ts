@@ -23,6 +23,7 @@ import {BoardService} from './service/rest-api/board/board.service';
 import { PostFormComponent } from './component/post/post-form.component';
 import { SinglePostViewComponent } from './component/post/single-post-view/single-post-view.component';
 import { SinglePostModifyComponent } from './component/board/modify/single-post-modify/single-post-modify.component';
+import { SignUpKakaoComponent } from './component/user/sign-up-kakao/sign-up-kakao/sign-up-kakao.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { SinglePostModifyComponent } from './component/board/modify/single-post-
     BoardComponent,
     PostFormComponent,
     SinglePostViewComponent,
-    SinglePostModifyComponent
+    SinglePostModifyComponent,
+    SignUpKakaoComponent
   ],
   imports: [
     BrowserModule,

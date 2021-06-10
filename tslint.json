@@ -130,7 +130,6 @@
         "check-decl",
         "check-operator",
         "check-separator",
-        "check-type",
         "check-typecast"
       ]
     },

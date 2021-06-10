@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import {FormGroup, FormControl, Validators, FormBuilder, AbstractControl} from '@angular/forms';
 import { Router } from '@angular/router';
 import { SignService } from 'src/app/service/rest-api/sign/sign.service';
 
@@ -28,8 +28,7 @@ export class SignUpComponent {
     }, {validator: this.checkPassword});
   }
 
-  // tslint:disable-next-line:typedef
-  checkPassword(group: FormGroup) {
+  checkPassword(group: FormGroup): object {
     const userPwd = group.controls.userPwd.value;
     const userPwdRe = group.controls.userPwd_Re.value;
     return userPwd === '' || userPwdRe === '' || userPwd === userPwdRe ? null : { notSame : true };
@@ -40,8 +39,7 @@ export class SignUpComponent {
     return this.signUpForm.controls;
   }
 
-  // tslint:disable-next-line:typedef
-  submit() {
+  submit(): any {
     if (this.signUpForm.valid) {
       this.signService.signUp(this.signUpForm.value.userId, this.signUpForm.value.userPwd, this.signUpForm.value.userName)
         .then( response => {
