@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { ApiResponseSingle } from 'src/app/model/common/ApiResponseSingle';
-import { ApiValidationService } from 'src/app/model/common/api-validation/api-validation.service';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {ApiResponseSingle} from 'src/app/model/common/ApiResponseSingle';
+import {ApiValidationService} from 'src/app/model/common/api-validation/api-validation.service';
 
 
 @Injectable({
@@ -9,10 +9,10 @@ import { ApiValidationService } from 'src/app/model/common/api-validation/api-va
 })
 export class SignService {
 
-  private readonly home = '';
   private readonly signInUrl = '/api/v1/signIn';
   private readonly signUpUrl = '/api/v1/signUp';
-  private readonly getKakaoAuthCode = '/social/login/kakaoAuthCode';
+  private readonly getKakaoAuthCodeUrl = '/social/login/kakaoAuthCode';
+  private readonly signUpKakaoAuthcode = '/api/v1/signUp/kakaoAuthCode';
 
   constructor(private http: HttpClient,
               private apiValidationService: ApiValidationService) {}
@@ -34,13 +34,28 @@ export class SignService {
       });
   }
 
-  // 카카오 회원 가입 합니다
-  signUpKakaoButton(): Promise<any> {
-    return this.http.get<ApiResponseSingle>(this.getKakaoAuthCode)
+  /*
+   * 카카오 회원가입 버튼 클릭 시 동작 합니다.
+   * 서버에게 '카카오 인가코드 요청 URI'를 요청 합니다.
+   */
+  getKakaoAuthCode(): Promise<any> {
+    return this.http.get<ApiResponseSingle>(this.getKakaoAuthCodeUrl)
       .toPromise()
-      .then(async response => {
+      .then(response => {
         window.open(response.data);
-        return this.http.get(this.home);
+      });
+  }
+
+  /*
+   * 카카오 API가 발급한 인가 코드를 바탕으로 회원가입 핸들러(서버) 요청합니다.
+   */
+  signUpKakaoAuth(paramCode: string): Promise<any> {
+    const params = new FormData();
+    params.append('code', paramCode); // 인가코드
+    return this.http.post(this.signUpKakaoAuthcode, params)
+      .toPromise()
+      .then(response => {
+        alert(response + '성공!');
       });
   }
 

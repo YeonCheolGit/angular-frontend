@@ -24,6 +24,7 @@ import { PostFormComponent } from './component/post/post-form.component';
 import { SinglePostViewComponent } from './component/post/single-post-view/single-post-view.component';
 import { SinglePostModifyComponent } from './component/board/modify/single-post-modify/single-post-modify.component';
 import { SignUpKakaoComponent } from './component/user/sign-up-kakao/sign-up-kakao/sign-up-kakao.component';
+import { KakaoAuthComponent } from './component/kakao-auth/kakao-auth.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { SignUpKakaoComponent } from './component/user/sign-up-kakao/sign-up-kak
     PostFormComponent,
     SinglePostViewComponent,
     SinglePostModifyComponent,
-    SignUpKakaoComponent
+    SignUpKakaoComponent,
+    KakaoAuthComponent
   ],
   imports: [
     BrowserModule,

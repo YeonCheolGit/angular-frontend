@@ -1,6 +1,6 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './component/home.component';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {HomeComponent} from './component/home.component';
 import {SignInComponent} from './component/user/sign-in/sign-in.component';
 import {SignUpComponent} from './component/user/sign-up/sign-up.component';
 import {LogoutComponent} from './component/user/logout/logout.component';
@@ -11,7 +11,7 @@ import {PostFormComponent} from './component/post/post-form.component';
 import {SinglePostViewComponent} from './component/post/single-post-view/single-post-view.component';
 import {SinglePostModifyComponent} from './component/board/modify/single-post-modify/single-post-modify.component';
 import {BoardResolve} from './component/board/resolve/resolve';
-import {SignUpKakaoComponent} from './component/user/sign-up-kakao/sign-up-kakao/sign-up-kakao.component';
+import {KakaoAuthComponent} from './component/kakao-auth/kakao-auth.component';
 
 
 const routes: Routes = [
@@ -19,6 +19,7 @@ const routes: Routes = [
   {path: 'signIn', component: SignInComponent},
   {path: 'signUp', component: SignUpComponent},
   {path: 'signUpKakaoButton', component: SignInComponent},
+  {path: 'kakaoAuth', component: KakaoAuthComponent},
   {path: 'logOut', component: LogoutComponent},
   {path: 'myInfo', component: MyInfoComponent, canActivate: [AuthGuard]},
   {path: 'board/:boardName', component: BoardComponent, resolve: {posts: BoardResolve}},
