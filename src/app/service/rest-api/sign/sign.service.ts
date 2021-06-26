@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {ApiResponseSingle} from 'src/app/model/common/ApiResponseSingle';
 import {ApiValidationService} from 'src/app/model/common/api-validation/api-validation.service';
+import {async} from "rxjs-compat/scheduler/async";
 
 
 @Injectable({
@@ -38,24 +39,27 @@ export class SignService {
    * 카카오 회원가입 버튼 클릭 시 동작 합니다.
    * 서버에게 '카카오 인가코드 요청 URI'를 요청 합니다.
    */
-  getKakaoAuthCode(): Promise<any> {
+  async getKakaoAuthCode(): Promise<any> {
     return this.http.get<ApiResponseSingle>(this.getKakaoAuthCodeUrl)
       .toPromise()
-      .then(response => {
-        window.open(response.data);
+      .then(async response => {
+        await window.open(response.data);
       });
   }
 
   /*
    * 카카오 API가 발급한 인가 코드를 바탕으로 회원가입 핸들러(서버) 요청합니다.
    */
-  signUpKakaoAuth(paramCode: string): Promise<any> {
+  async signUpKakaoAuth(paramCode: string): Promise<any> {
     const params = new FormData();
     params.append('code', paramCode); // 인가코드
-    return this.http.post(this.signUpKakaoAuthcode, params)
+    return this.http.post(this.signUpKakaoAuthcode, params) // 회원가입 POST 요청
       .toPromise()
-      .then(response => {
-        alert(response + '성공!');
+      .then(async () => {
+        await alert('회원가입 완료');
+      }).catch(error => {
+        alert('회원가입 과정에서 에러가 발생 했습니다');
+        return Promise.reject(error.error.msg);
       });
   }
 
