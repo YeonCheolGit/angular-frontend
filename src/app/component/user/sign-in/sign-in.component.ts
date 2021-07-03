@@ -46,7 +46,7 @@ export class SignInComponent implements OnInit {
     }
   }
 
-  signUpKakaoButton(): any { // 카카오 회원가입 버튼 클릭 시 동작 합니다.
+  signInKakaoButton(): any { // 카카오 회원가입 버튼 클릭 시 동작 합니다.
     this.signService.getKakaoAuthCode() // 카카오 '인가코드 요청 URI'를 서버로 요청 합니다.
       .then(data => {
         console.log(data);

@@ -40,6 +40,9 @@
       <div class="button">
         <button type="submit" mat-raised-button [disabled]="!signUpForm.valid" color="primary">회원가입</button>
       </div>
+      <form (ngSubmit)="signUpKakaoButton()">
+        <button type="submit" mat-raised-button color="primary">카카오 회원가입</button>
+      </form>
     </form>
   </mat-card>
 </div>
