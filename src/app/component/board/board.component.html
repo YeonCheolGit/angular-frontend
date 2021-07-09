@@ -37,9 +37,7 @@
           <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
           <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
         </mat-table>
-        <div *ngIf="posts.length === 0" class="no-content">
-          등록된 게시글이 없습니다.
-        </div>
+        <div *ngIf="posts.length === 0" class="no-content"></div>
       </div>
     </mat-card-content>
   </mat-card>

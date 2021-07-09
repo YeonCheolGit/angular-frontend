@@ -23,8 +23,28 @@
     </mat-list>
   </mat-card-content>
 </mat-card>
+<mat-card>
+  <mat-card-title>댓글 목록</mat-card-title>
+  <mat-card-content>
+    <mat-list class="list-class" *ngFor="let reply of post.replyByPostNo">
+      <mat-list-item>
+        <mat-icon matListIcon>author</mat-icon>
+        <div matLine>
+          <b>작성자</b>
+          <div matLine>{{reply.author}}</div>
+        </div>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon matListIcon>content</mat-icon>
+        <div matLine>
+          <b>내용</b>
+          <div matLine>{{reply.content}}</div>
+        </div>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>
 <div class="button">
   <button mat-stroked-button color="primary" [routerLink]="['/board', boardName]">목록</button>
-<!--  <button mat-raised-button color="primary" *ngIf="signService.signInCheck() && loginUser?.userNo == post?.userNo" [routerLink]="['/board', boardName, 'post', post?.postNo, 'modify']">수정</button>-->
   <button mat-raised-button color="primary" *ngIf="signService.signInCheck()" [routerLink]="['/board', boardName, 'post', post?.postNo, 'modify']">수정</button>
 </div>

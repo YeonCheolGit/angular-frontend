@@ -2,6 +2,7 @@ import { MyInfoService } from 'src/app/service/rest-api/myInfo/myinfo.service';
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/model/myinfo/User';
 import { Post } from 'src/app/model/board/Post';
+import {Reply} from 'src/app/model/reply/Reply';
 import { ActivatedRoute } from '@angular/router';
 import { BoardService } from 'src/app/service/rest-api/board/board.service';
 import { SignService } from 'src/app/service/rest-api/sign/sign.service';

@@ -1,4 +1,5 @@
 import { User } from '../myinfo/User';
+import { Reply } from '../reply/Reply';
 
 export interface Post {
   postNo: number;
@@ -9,4 +10,5 @@ export interface Post {
   createdAt: Date;
   modifiedAt: Date;
   user: User;
+  replyByPostNo: Array<Reply>;
 }

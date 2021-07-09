@@ -30,7 +30,6 @@ export class BoardComponent implements OnInit {
     this.boardService.getPosts(this.boardName).then(response => {
       this.posts = response;
     });
-
     if (this.signService.signInCheck()) {
       this.myInfoService.getUser()
         .then(user => {
