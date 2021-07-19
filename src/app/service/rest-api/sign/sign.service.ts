@@ -11,7 +11,7 @@ export class SignService {
 
   private readonly signInUrl = '/api/v1/signIn';
   private readonly signUpUrl = '/api/v1/signUp';
-  private readonly getKakaoAuthCodeUrl = '/social/login/kakaoAuthCode';
+  private readonly getKakaoAuthCodeUrl = '/api/v1/get/kakaoAuthCode';
   private readonly signUpOrInKakaoAuthcode = '/api/v1/signUpOrIn/kakaoAuthCode';
 
   constructor(private http: HttpClient,
