@@ -1,11 +1,11 @@
 {
   "/api/*" : {
-    "target" : "http://localhost:8080/",
+    "target" : "http://146.56.161.75",
     "secure" : false,
     "logLevel" : "debug"
   },
   "/social/login/*" : {
-    "target" : "http://localhost:8080/",
+    "target" : "http://146.56.161.75",
     "secure" : false,
     "logLevel" : "debug"
   }

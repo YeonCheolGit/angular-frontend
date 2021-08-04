@@ -59,7 +59,8 @@
                 </a>
               </li>
               <li *ngIf="signService.signInCheck()">
-                <a href="/logOut">
+                <a [routerLink]="['/logOut']">
+<!--                <a href="/logOut">-->
                   <mat-icon class="icon">logout</mat-icon>
                   <span class="label">로그아웃</span>
                 </a>
