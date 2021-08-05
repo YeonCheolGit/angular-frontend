@@ -53,7 +53,7 @@ export class BoardService {
           alert('로그인 시간이 만료되었습니다. 다시 로그인 해주세요.');
           localStorage.removeItem('x-auth-token');
           localStorage.removeItem('loginUser');
-          this.router.navigate(['/']);
+          this.router.navigate(['']);
         } else {
           alert('게시글 작성 중 오류가 발생했습니다. 다시 시도해주세요.');
           console.log('게시글 작성 중 에러 >>> ' + response.error.msg + '\n' + response.error.status);
@@ -97,7 +97,7 @@ export class BoardService {
           alert('로그인 시간이 만료되었습니다. 다시 로그인 해주세요.');
           localStorage.removeItem('x-auth-token');
           localStorage.removeItem('loginUser');
-          this.router.navigate(['/']);
+          this.router.navigate(['']);
           return Promise.reject('게시글 수정 중 오류 >>> ' + response.error.msg + '\n' + response.error.status);
         } else {
           alert('게시글 수정 도중 오류가 발생했습니다. 다시 시도해주세요.');
@@ -113,6 +113,7 @@ export class BoardService {
       .toPromise()
       .then(this.apiValidationService.validateResponse)
       .then(response => {
+        this.getPosts('free');
         return true;
       })
       .catch(response => {
@@ -121,7 +122,7 @@ export class BoardService {
           alert('로그인 시간이 만료되었습니다. 다시 로그인 해주세요.');
           localStorage.removeItem('x-auth-token');
           localStorage.removeItem('loginUser');
-          this.router.navigate(['/']);
+          this.router.navigate(['']);
           return Promise.reject('게시글 삭제 중 오류 >>> ' + response.error.msg + '\n' + response.error.status);
         } else if (response.error.status === 404) {
           alert('타인의 글은 삭제할 수 없습니다.');

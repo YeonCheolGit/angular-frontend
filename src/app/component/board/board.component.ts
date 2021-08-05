@@ -21,7 +21,8 @@ export class BoardComponent implements OnInit {
   constructor(private boardService: BoardService,
               private route: ActivatedRoute,
               public signService: SignService,
-              private myInfoService: MyInfoService) {
+              private myInfoService: MyInfoService,
+              private router: Router) {
     this.boardName = this.route.snapshot.params['boardName'];
   }
 
@@ -39,10 +40,11 @@ export class BoardComponent implements OnInit {
   }
 
   // tslint:disable-next-line:typedef
-  delete(postNo: number) {
+  delete(postNo: number): void {
     if (confirm('정말 삭제하시겠습니까?\n' + '삭제된 글은 복구할 수 없습니다.')) {
       this.boardService.deletePost(postNo).then(response => {
-        window.location.reload();
+        this.router.navigate(['']);
+        // window.location.reload();
       });
     }
   }

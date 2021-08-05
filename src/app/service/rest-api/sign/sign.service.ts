@@ -9,10 +9,10 @@ import {ApiValidationService} from 'src/app/model/common/api-validation/api-vali
 })
 export class SignService {
 
-  private readonly signInUrl = '/api/v1/signIn';
-  private readonly signUpUrl = '/api/v1/signUp';
+  private readonly signInUrl = '/api/v1/sign/signIn';
+  private readonly signUpUrl = '/api/v1/sign/signUp';
   private readonly getKakaoAuthCodeUrl = '/api/v1/social/getKakaoAuthCode';
-  private readonly signUpOrInKakaoAuthcode = '/api/v1/signUpOrIn/kakaoAuthCode';
+  private readonly signAuthcode = '/api/v1/sign/kakaoAuthCode';
 
   constructor(private http: HttpClient,
               private apiValidationService: ApiValidationService) {}
@@ -50,7 +50,7 @@ export class SignService {
   async signUpOrInByKakaoAuthCode(paramCode: string): Promise<any> {
     const params = new FormData();
     params.append('code', paramCode); // 인가코드를 파라미터에 저장
-    return this.http.post(this.signUpOrInKakaoAuthcode, params) // 회원가입 POST 요청
+    return this.http.post(this.signAuthcode, params) // 회원가입 POST 요청
       .toPromise()
       .then(this.apiValidationService.validateResponse)
       .then(response => {
